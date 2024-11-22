@@ -81,7 +81,7 @@ def TAMPILKAN_BANNER():
  |  _| | |_) |_____| . \ (_) | | | | | |  __/ | | |
 [bold white] |_|   |_.__/      |_|\_\___/|_| |_| |_|\___|_| |_|
 
-    [underline red]Facebook Comments Home Page - Coded by Rozhak""", width=57, style="bold light_slate_grey"))
+    [underline red]Facebook Comments Home Page - Coded by MEMEK""", width=57, style="bold light_slate_grey"))
 
 def HEADERS(your_cookies):
     return({
@@ -521,7 +521,7 @@ class FACEBOOK:
         response4 = SESSION.get('https://m.facebook.com{}'.format(self.REACTION_PICKER))
 
         self.UFI_REACTION = re.findall(r'href="(/ufi/reaction/[^"]+)"', str(response4.text))
-        for URLS in self.UFI_REACTION: # 1=LIKE, 2=SUPER, 16=PEDULI, 4=HAHA, 3=WOW, 7=SEDIH, 8=MARAH
+        for URLS in self.UFI_REACTION: # 2=SUPER
             if f'reaction_type={TYPE_}' in str(URLS):
                 self.REACTION_URL = URLS.replace('amp;', '')
             else:
@@ -550,14 +550,11 @@ class TIPE:
 
     def REACTION(self, number):
         self.REACTIONS = {
-            1: "Like",
+            
             2: "Super",
-            16: "Peduli",
-            4: "Haha",
-            3: "Wow",
-            7: "Sedih"
+            
         }
-        return self.REACTIONS.get(int(number), "Marah")
+        return self.REACTIONS.get(int(number), "Super")
 
 class GENERATE:
 

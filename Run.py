@@ -455,7 +455,7 @@ class FACEBOOK:
             })
 
             if bool(LIKE['STATUS']) == True:
-                self.RANDOM_REAKSI = random.choice(['1', '2', '16', '4', '3', '7', '8'])
+                self.RANDOM_REAKSI = random.choice(['2'])
                 self.TIPE_REAKSI = TIPE().REACTION(self.RANDOM_REAKSI)
                 self.REAKSI(SESSION, response.text, link_postingan, self.RANDOM_REAKSI)
             else:

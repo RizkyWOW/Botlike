@@ -81,7 +81,7 @@ def TAMPILKAN_BANNER():
  |  _| | |_) |_____| . \ (_) | | | | | |  __/ | | |
 [bold white] |_|   |_.__/      |_|\_\___/|_| |_| |_|\___|_| |_|
 
-    [underline red]Facebook Comments Home Page - Coded by ARKYPRAS""", width=57, style="bold light_slate_grey"))
+    [underline red]Facebook Comments Home Page - Coded by NGEWE""", width=57, style="bold light_slate_grey"))
 
 def HEADERS(your_cookies):
     return({
@@ -455,7 +455,7 @@ class FACEBOOK:
             })
 
             if bool(LIKE['STATUS']) == True:
-                self.RANDOM_REAKSI = random.choice(['1', '2', '16'])
+                self.RANDOM_REAKSI = random.choice(['2'])
                 self.TIPE_REAKSI = TIPE().REACTION(self.RANDOM_REAKSI)
                 self.REAKSI(SESSION, response.text, link_postingan, self.RANDOM_REAKSI)
             else:
@@ -478,7 +478,7 @@ class FACEBOOK:
                     fields={
                         "comment_text": "{}".format(self.COMMENT_TEXT),
                         "fb_dtsg": "{}".format(self.FB_DTSG),
-                        "photo": (f"{str(int(time.time()))}.jpg", open("Penyimpanan/Images.jpg", "rb"), "image/jpeg"),
+                        
                         "jazoest": "{}".format(self.JAZOEST),
                         "post": "Komentari"
                     },
@@ -521,7 +521,7 @@ class FACEBOOK:
         response4 = SESSION.get('https://m.facebook.com{}'.format(self.REACTION_PICKER))
 
         self.UFI_REACTION = re.findall(r'href="(/ufi/reaction/[^"]+)"', str(response4.text))
-        for URLS in self.UFI_REACTION: # 1=LIKE, 2=SUPER, 16=PEDULI
+        for URLS in self.UFI_REACTION: # 2=SUPER
             if f'reaction_type={TYPE_}' in str(URLS):
                 self.REACTION_URL = URLS.replace('amp;', '')
             else:
@@ -550,9 +550,9 @@ class TIPE:
 
     def REACTION(self, number):
         self.REACTIONS = {
-            1: "Like",
+            
             2: "Super",
-            16: "Peduli",
+         
             
             
         
